@@ -1,0 +1,24 @@
+<table class="table table-striped ">
+    <thead>
+        <th>Vehicles</th>
+        <th>Capacity(cc)</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let row of data">
+            <ng-container *ngIf = "row.Name == 'All'">
+                <td>
+                    <a href="#" *ngIf="row.type == 0" (click)="toggleOn(row.Vehicle)" class="far fa-caret-square-right"></a>
+                    <a href="#" *ngIf="row.type == 1" (click)="toggleOff(row.Vehicle)" class="fas fa-caret-square-down"></a>
+                    {{row.Vehicle}}</td>
+                <td> </td>
+            </ng-container>
+
+            <ng-container *ngIf = "row.Name != 'All' && row.type==1">
+                <td>
+
+                    {{row.Name}}</td>
+                <td>{{row.Capacity}}</td>
+            </ng-container>
+        </tr>
+    </tbody>
+  </table>
